@@ -1,5 +1,6 @@
 import { Component, ElementRef, Input, OnInit, Output, ViewChild, viewChild } from '@angular/core';
-import { Scene,Camera, Engine, FreeCamera, Vector3, HemisphericLight, Mesh, MeshBuilder } from 'babylonjs';
+import { Scene,Camera, Engine, FreeCamera, Vector3, HemisphericLight, Mesh, SceneLoader } from 'babylonjs';
+import '@babylonjs/loaders/glTF'
 
 @Component({
   selector: 'app-three-d',
@@ -46,13 +47,7 @@ export class ThreeDComponent implements OnInit{
   }
 
   createScene(scene: Scene, canvas: HTMLCanvasElement) {
-    const light = new HemisphericLight('light', new Vector3(0, 1, 0), scene);
-    light.intensity = 0.7;
-
-    const sphere = Mesh.CreateSphere('sphere', 16, 2, scene);
-    sphere.position.y = 1;
-
-    Mesh.CreateGround('ground', 6, 6, 2, scene);
+    SceneLoader.ImportMesh('','./assets/3d/','halo_ship.glb', scene)
   }
 
 

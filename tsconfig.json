@@ -25,7 +25,9 @@
     ],
     "types": [
       "babylonjs",
-      "babylonjs-post-process"
+      "babylonjs-post-process",
+      "babylonjs/loaders",
+      "@babylonjs/core"
     ]
   },
   "angularCompilerOptions": {
